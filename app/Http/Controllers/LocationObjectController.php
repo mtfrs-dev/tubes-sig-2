@@ -8,17 +8,11 @@ use App\Http\Requests\UpdateLocationObjectRequest;
 
 class LocationObjectController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        return view('pages.admin-index');
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
+    
     public function create()
     {
         //

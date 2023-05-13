@@ -6,12 +6,11 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StoreRatingRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
+    protected $errorBag = 'create_rating';
+
     public function authorize(): bool
     {
-        return false;
+        return auth()->check();
     }
 
     /**

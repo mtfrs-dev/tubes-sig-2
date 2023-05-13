@@ -165,61 +165,61 @@ class LocationObjectSeeder extends Seeder
             'geometry'      => DB::select('SELECT ST_MakePoint(-5.404608990286993, 105.26377797317458)')[0]->st_makepoint
         ]);
 
-        DB::table('location_objects')->insert([
-            'name'          => 'Lapangan Kalpataru',
-            'type'          => 'Sarana Olahraga',
-            'address'       => 'Beringin Raya, Kec. Kemiling, Kota Bandar Lampung, Lampung 35155',
-            'phone'         => '-',
-            'source'        => 'Google Maps',
-            'asset_link'    => 'https://lh5.googleusercontent.com/p/AF1QipNbaCNwpL6__KWpKb90SCPezOsp-FtEV9IlQlzY=w408-h272-k-no',
-            'asset_name'    => 'Lapangan Kalpataru Image',
-            'asset_source'  => 'Google Maps',
-            'latitude'      => -5.399478821754892,
-            'longitude'     => 105.2077241931712,
-            'geometry'      => DB::select('SELECT ST_MakePoint(-5.399478821754892, 105.2077241931712)')[0]->st_makepoint
-        ]);
+        // DB::table('location_objects')->insert([
+        //     'name'          => 'Lapangan Kalpataru',
+        //     'type'          => 'Sarana Olahraga',
+        //     'address'       => 'Beringin Raya, Kec. Kemiling, Kota Bandar Lampung, Lampung 35155',
+        //     'phone'         => '-',
+        //     'source'        => 'Google Maps',
+        //     'asset_link'    => 'https://lh5.googleusercontent.com/p/AF1QipNbaCNwpL6__KWpKb90SCPezOsp-FtEV9IlQlzY=w408-h272-k-no',
+        //     'asset_name'    => 'Lapangan Kalpataru Image',
+        //     'asset_source'  => 'Google Maps',
+        //     'latitude'      => -5.399478821754892,
+        //     'longitude'     => 105.2077241931712,
+        //     'geometry'      => DB::select('SELECT ST_MakePoint(-5.399478821754892, 105.2077241931712)')[0]->st_makepoint
+        // ]);
 
-        DB::table('location_objects')->insert([
-            'name'          => 'Lapangan Basket Dino',
-            'type'          => 'Sarana Olahraga',
-            'address'       => 'Jl. Nusa Indah No.44, Rw. Laut, Engal, Kota Bandar Lampung, Lampung 35213',
-            'phone'         => '-',
-            'source'        => 'Google Maps',
-            'asset_link'    => 'https://lh5.googleusercontent.com/p/AF1QipM0KjihdBvn-xEhyRTH9L7jRfduXTkvFUPAPqnk=w203-h152-k-no',
-            'asset_name'    => 'Lapangan Basket Dino Image',
-            'asset_source'  => 'Google Maps',
-            'latitude'      => -5.425701341358925,
-            'longitude'     => 105.26625218103557,
-            'geometry'      => DB::select('SELECT ST_MakePoint(-5.425701341358925, 105.26625218103557)')[0]->st_makepoint
-        ]);
+        // DB::table('location_objects')->insert([
+        //     'name'          => 'Lapangan Basket Dino',
+        //     'type'          => 'Sarana Olahraga',
+        //     'address'       => 'Jl. Nusa Indah No.44, Rw. Laut, Engal, Kota Bandar Lampung, Lampung 35213',
+        //     'phone'         => '-',
+        //     'source'        => 'Google Maps',
+        //     'asset_link'    => 'https://lh5.googleusercontent.com/p/AF1QipM0KjihdBvn-xEhyRTH9L7jRfduXTkvFUPAPqnk=w203-h152-k-no',
+        //     'asset_name'    => 'Lapangan Basket Dino Image',
+        //     'asset_source'  => 'Google Maps',
+        //     'latitude'      => -5.425701341358925,
+        //     'longitude'     => 105.26625218103557,
+        //     'geometry'      => DB::select('SELECT ST_MakePoint(-5.425701341358925, 105.26625218103557)')[0]->st_makepoint
+        // ]);
 
-        DB::table('location_objects')->insert([
-            'name'          => 'Kolam Renang Pahoman',
-            'type'          => 'Sarana Olahraga',
-            'address'       => 'Jl. KH. Ahmad Dahlan, Pahoman, Kec. Tlk. Betung Utara, Kota Bandar Lampung, Lampung 35228',
-            'phone'         => '-',
-            'source'        => 'Google Maps',
-            'asset_link'    => 'https://lh5.googleusercontent.com/p/AF1QipPdwvSjZWbUgSKLv-wmf6yYePvTgzmG9apP3fU8=w203-h152-k-no',
-            'asset_name'    => 'Kolam Renang Pahoman Image',
-            'asset_source'  => 'Google Maps',
-            'latitude'      => -5.426406885014613,
-            'longitude'     => 105.26856601263506,
-            'geometry'      => DB::select('SELECT ST_MakePoint(-5.426406885014613, 105.26856601263506)')[0]->st_makepoint
-        ]);
+        // DB::table('location_objects')->insert([
+        //     'name'          => 'Kolam Renang Pahoman',
+        //     'type'          => 'Sarana Olahraga',
+        //     'address'       => 'Jl. KH. Ahmad Dahlan, Pahoman, Kec. Tlk. Betung Utara, Kota Bandar Lampung, Lampung 35228',
+        //     'phone'         => '-',
+        //     'source'        => 'Google Maps',
+        //     'asset_link'    => 'https://lh5.googleusercontent.com/p/AF1QipPdwvSjZWbUgSKLv-wmf6yYePvTgzmG9apP3fU8=w203-h152-k-no',
+        //     'asset_name'    => 'Kolam Renang Pahoman Image',
+        //     'asset_source'  => 'Google Maps',
+        //     'latitude'      => -5.426406885014613,
+        //     'longitude'     => 105.26856601263506,
+        //     'geometry'      => DB::select('SELECT ST_MakePoint(-5.426406885014613, 105.26856601263506)')[0]->st_makepoint
+        // ]);
 
-        DB::table('location_objects')->insert([
-            'name'          => 'Ifa Futsal',
-            'type'          => 'Sarana Olahraga',
-            'address'       => 'Jl. Darussalam No.82, Susunan Baru, Kec. Tj. Karang Bar., Kota Bandar Lampung, Lampung 35111',
-            'phone'         => '+62895610001106',
-            'source'        => 'Google Maps',
-            'asset_link'    => 'https://lh5.googleusercontent.com/p/AF1QipNcqi-wEzQ_bmc_YMAPOnVq_kqejzbi36TnTEGc=w203-h114-k-no',
-            'asset_name'    => 'Ifa Futsal Image',
-            'asset_source'  => 'Google Maps',
-            'latitude'      => -5.403100937289046,
-            'longitude'     => 105.22946554291012,
-            'geometry'      => DB::select('SELECT ST_MakePoint(-5.403100937289046, 105.22946554291012)')[0]->st_makepoint
-        ]);
+        // DB::table('location_objects')->insert([
+        //     'name'          => 'Ifa Futsal',
+        //     'type'          => 'Sarana Olahraga',
+        //     'address'       => 'Jl. Darussalam No.82, Susunan Baru, Kec. Tj. Karang Bar., Kota Bandar Lampung, Lampung 35111',
+        //     'phone'         => '+62895610001106',
+        //     'source'        => 'Google Maps',
+        //     'asset_link'    => 'https://lh5.googleusercontent.com/p/AF1QipNcqi-wEzQ_bmc_YMAPOnVq_kqejzbi36TnTEGc=w203-h114-k-no',
+        //     'asset_name'    => 'Ifa Futsal Image',
+        //     'asset_source'  => 'Google Maps',
+        //     'latitude'      => -5.403100937289046,
+        //     'longitude'     => 105.22946554291012,
+        //     'geometry'      => DB::select('SELECT ST_MakePoint(-5.403100937289046, 105.22946554291012)')[0]->st_makepoint
+        // ]);
 
         // LOKASI WISATA
         DB::table('location_objects')->insert([
