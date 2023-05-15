@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="shortcut icon" href="{{ asset('icons/icons8-location-50.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('icons/icons8-location-50.png') }}" type="image/png">
     
     <!-- MASTER CSS --> 
     <link rel="stylesheet" href="{{ asset('css/master.css') }}">
