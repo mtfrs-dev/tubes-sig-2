@@ -15,6 +15,6 @@ jobs:
         username: ${{ secrets.INSTANCE_USERNAME }}
         key: ${{ secrets.INSTANCE_KEY }}
         script: |
-          cd /var/www/src
+          cd /var/www/html/tubes-sig-2
           git pull origin master
           git checkout master
