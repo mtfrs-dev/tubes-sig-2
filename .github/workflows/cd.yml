@@ -13,6 +13,7 @@ jobs:
       with:
         host: ${{ secrets.INSTANCE_IP }}
         username: ${{ secrets.INSTANCE_USERNAME }}
+        key: ${{ secrets.INSTANCE_KEY }}
         script: |
           cd /var/www/src
           git pull origin master
