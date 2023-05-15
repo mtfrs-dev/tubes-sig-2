@@ -1,0 +1,19 @@
+name: Dev Deployment
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  Deployment:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Unzip build zip on VPS instance
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.INSTANCE_IP }}
+        username: ${{ secrets.INSTANCE_USERNAME }}
+        script: |
+          cd /var/www/src
+          git pull origin master
+          git checkout master
