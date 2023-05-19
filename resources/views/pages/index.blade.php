@@ -130,8 +130,14 @@
         let permLayer;
         let routeLayer;
 
+        // map = L.map('map').setView(5,111, 13);
+
         // Get the user's current location
+        // navigator.geolocation.getCurrentPosition(function(position) {
+        // });
         navigator.geolocation.getCurrentPosition(function(position) {
+            console.log(position.coords.latitude);
+            console.log(position.coords.longitude);
             currentLocation = L.latLng(position.coords.latitude, position.coords.longitude);
             document.getElementById('mylatitude').setAttribute('value', position.coords.latitude)
             document.getElementById('mylongitude').setAttribute('value', position.coords.longitude)

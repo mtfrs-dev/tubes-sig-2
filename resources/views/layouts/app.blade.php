@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" 
         integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" 
         crossorigin="" />
+    {{-- <link rel="stylesheet" href="{{ asset('css/leaflet.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('css/leaflet-routing-machine.css') }}">
     
     
@@ -22,8 +23,8 @@
     <title>@yield('title')</title>
     @livewireStyles
 
-    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- <link rel="stylesheet" href="{{ asset('css/app.css') }}"> --}}
 </head>
 
 <body>
@@ -38,7 +39,7 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
 
-    <script src="{{ asset('js/app.js') }}"></script>
+    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
 
     <!-- SweetAlert -->
     <script src="{{ asset('js/sweet-alert.min.js') }}"></script>
@@ -47,6 +48,7 @@
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" 
         integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" 
         crossorigin=""></script>
+    {{-- <script src="{{ asset('js/leaflet.js') }}"></script> --}}
     <script src="{{ asset('js/leaflet-routing-machine.js') }}"></script>
     <!-- JQUERY --> 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" 
