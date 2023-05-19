@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rating;
 use Illuminate\Http\Request;
 use App\Models\LocationObject;
 use Illuminate\Support\Facades\DB;
@@ -86,6 +87,11 @@ class WisataController extends Controller
             ->groupBy('location_objects.id')
             ->where('location_objects.id', $id)
             ->first();
+            
+        $myRating = Rating::query()
+            ->where('location_object_id', $id)
+            ->where('user_id', auth()->user()->id)
+            ->first();
 
         $recommendations = LocationObject::leftJoin('ratings', 'location_objects.id', '=', 'ratings.location_object_id')
             ->select('location_objects.*', DB::raw('COALESCE(AVG(ratings.score), 0) as rating'))
@@ -96,6 +102,6 @@ class WisataController extends Controller
             ->take(3)
             ->get();
             
-        return view("pages.detail", compact('object_type', 'data', 'recommendations'));
+        return view("pages.detail", compact('object_type', 'data', 'recommendations', 'myRating'));
     }
 }

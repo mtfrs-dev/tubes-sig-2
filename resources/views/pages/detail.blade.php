@@ -153,7 +153,7 @@
                     <!-- REVIEW BODY CONTENT -->
                     <div class="relative max-h-[55vh] px-2 pb-2 mt-2 overflow-y-auto custom-scrollbar">
                         <div class="pt-2 relative">
-                            @if ($data->rating)
+                            @if ($myRating)
                                 <div class="mb-3 text-gray-700 bg-gray-500-10 bg-opacity-20 rounded p-4">
                                     <p class="mb-3">
                                         Penilaian anda terkait lokasi :
@@ -163,7 +163,7 @@
                                             <p class="mb-2 text-center">Skor pada lokasi :</p>
                                             <div class="flex justify-center gap-3 text-gray-300">
                                                 @for ($i =1; $i<=5; $i++)
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 {{ $data->rating >= $i ? 'text-yellow-500' : '' }}">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 {{ $myRating->score >= $i ? 'text-yellow-500' : '' }}">
                                                         <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" />
                                                     </svg>
                                                 @endfor
@@ -234,51 +234,51 @@
                                 </form>
                             @endif
                         </div>
-                        @if ($data->rating)
+                        @if ($myRating)
                             <div x-cloak x-show="showUpdateReview" class="absolute inset-0 bg-gray-50 rounded p-4 text-gray-700 flex flex-col justify-center items-center gap-4">
                                 <form action="{{ 
                                     $object_type == 'sarana olahraga' ? 
-                                            route('rating.update.olahraga', $data->id) 
+                                            route('rating.update.olahraga', $myRating->location_object_id) 
                                             : 
-                                            route('rating.update.wisata', $data->id) 
+                                            route('rating.update.wisata', $myRating->location_object_id) 
                                     }}" method="POST">
                                     @csrf
-                                    <input type="text" name="review_id" class="hidden" value="">
+                                    {{-- <input type="text" name="review_id" class="hidden" value=""> --}}
                                     <div class="p-3 rounded-md bg-white">
                                         <div class="mb-3">
                                             <p class="mb-2 text-center">Ubah skor pada pelayanan <span class="text-gray-600 font-medium">Helio Official</span> :</p>
                                             <div class="flex justify-center gap-3 text-gray-300">
                                                 <label for="update_score_1" id="update-score-select-1"
-                                                    class="update-score-select cursor-pointer {{ $data->rating >= 1 ? 'text-yellow-500' : '' }}">
-                                                    <input type="radio" name="score" id="update_score_1" value="1" @checked($data->rating == 1) class="hidden">
+                                                    class="update-score-select cursor-pointer {{ $myRating->score >= 1 ? 'text-yellow-500' : '' }}">
+                                                    <input type="radio" name="score" id="update_score_1" value="1" @checked($myRating->score >= 1) class="hidden">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                                                         <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" />
                                                     </svg>
                                                 </label>
                                                 <label for="update_score_2" id="update-score-select-2"
-                                                    class="update-score-select cursor-pointer {{ $data->rating >= 2 ? 'text-yellow-500' : '' }}">
-                                                    <input type="radio" name="score" id="update_score_2" value="2" @checked($data->rating == 2) class="hidden">
+                                                    class="update-score-select cursor-pointer {{ $myRating->score >= 2 ? 'text-yellow-500' : '' }}">
+                                                    <input type="radio" name="score" id="update_score_2" value="2" @checked($myRating->score >= 2) class="hidden">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                                                         <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" />
                                                     </svg>
                                                 </label>
                                                 <label for="update_score_3" id="update-score-select-3"
-                                                    class="update-score-select cursor-pointer {{ $data->rating >= 3 ? 'text-yellow-500' : '' }}">
-                                                    <input type="radio" name="score" id="update_score_3" value="3" @checked($data->rating == 3) class="hidden">
+                                                    class="update-score-select cursor-pointer {{ $myRating->score >= 3 ? 'text-yellow-500' : '' }}">
+                                                    <input type="radio" name="score" id="update_score_3" value="3" @checked($myRating->score >= 3) class="hidden">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                                                         <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" />
                                                     </svg>
                                                 </label>
                                                 <label for="update_score_4" id="update-score-select-4"
-                                                    class="update-score-select cursor-pointer {{ $data->rating >= 4 ? 'text-yellow-500' : '' }}">
-                                                    <input type="radio" name="score" id="update_score_4" value="4" @checked($data->rating == 4) class="hidden">
+                                                    class="update-score-select cursor-pointer {{ $myRating->score >= 4 ? 'text-yellow-500' : '' }}">
+                                                    <input type="radio" name="score" id="update_score_4" value="4" @checked($myRating->score >= 4) class="hidden">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                                                         <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" />
                                                     </svg>
                                                 </label>
                                                 <label for="update_score_5" id="update-score-select-5"
-                                                    class="update-score-select cursor-pointer {{ $data->rating >= 5 ? 'text-yellow-500' : '' }}">
-                                                    <input type="radio" name="score" id="update_score_5" value="5" @checked($data->rating == 5) class="hidden">
+                                                    class="update-score-select cursor-pointer {{ $myRating->score >= 5 ? 'text-yellow-500' : '' }}">
+                                                    <input type="radio" name="score" id="update_score_5" value="5" @checked($myRating->score >= 5) class="hidden">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                                                         <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" />
                                                     </svg>
@@ -308,9 +308,9 @@
                                 </p>
                                 <form action="{{ 
                                     $object_type == 'sarana olahraga' ? 
-                                        route('rating.destroy.olahraga', $data->id) 
+                                        route('rating.destroy.olahraga', $myRating->location_object_id) 
                                         : 
-                                        route('rating.destroy.wisata', $data->id) 
+                                        route('rating.destroy.wisata', $myRating->location_object_id) 
                                 }}" method="POST">
 
                                     
